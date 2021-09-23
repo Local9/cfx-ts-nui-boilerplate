@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap');
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+
+    background: transparent;
+    user-select: none;
+
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+html, body, #app, #app > div {
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    font-size: 15px;
+    font-weight: 500;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+* {
+    box-sizing: border-box;
+    outline: none;
+}
+
+::-webkit-scrollbar {
+    width: 11px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 3rem;
+    background: rgb(51, 51, 56);
+    border: 4px solid transparent;
+    background-clip: padding-box;
+}
