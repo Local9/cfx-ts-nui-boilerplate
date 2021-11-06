@@ -1,11 +1,13 @@
+const ESLintPlugin = require('eslint-webpack-plugin');
 const path = require('path');
 const destination = path.resolve(__dirname, 'dist');
+
 const global = {
     module: {
         rules: [
             {
                 test: /\.tsx?$/,
-                use: ['ts-loader', 'eslint-loader'],
+                use: ['swc-loader'],
                 exclude: /node_modules/,
             },
         ],
@@ -19,7 +21,7 @@ const server = {
     ...global,
 
     target: 'node',
-    entry: './src/server/server.ts',
+    entry: ['./src/server/env.ts', './src/server/server.ts'],
     output: {
         filename: 'server/bundle.js',
         path: destination
@@ -43,7 +45,9 @@ const shared = {
     output: {
         filename: 'shared/bundle.js',
         path: destination
-    }
+    },
+
+    plugins: [new ESLintPlugin()],
 }
 
 module.exports = [shared, server, client];

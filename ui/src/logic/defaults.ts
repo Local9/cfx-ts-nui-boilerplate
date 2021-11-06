@@ -14,12 +14,12 @@ export const pull = async (name: string): Promise<any> => {
     return content
 }
 
-export const apply = (value: any, state: any) => {
+export const apply = (value: any, state?: any) => {
     if (!state) return
 
     for (const key of Object.keys(value)) {
         const data = value[key]
-        const ref = state[key]
+        const ref = state?.[key]
 
         if (key.startsWith(':')) {
             apply(data, core._state[key.substr(1)])

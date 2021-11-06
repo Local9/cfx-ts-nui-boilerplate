@@ -14,7 +14,7 @@ export function tailwind(classes: string) {
 }
 
 // hover hook
-export function useHover(action: () => void, time: number = 500): { start: () => void; stop: () => void } {
+export function useHover(action: () => void, time = 500): { start: () => void; stop: () => void } {
     const [current, setState] = useState<NodeJS.Timeout>()
 
     return {

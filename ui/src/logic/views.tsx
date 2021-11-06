@@ -2,6 +2,12 @@ import React, { lazy, Suspense } from 'react'
 import { cfx } from './cfx'
 import { core } from './state'
 
+function StateEntry(name: string, value: any) {
+    this.name = name
+    this.value = value
+    this.type = typeof value
+}
+
 export async function useView(path: string) {
     const module = await import(`../views/${path}`)
 
@@ -14,12 +20,6 @@ export async function useView(path: string) {
         core._state[view] = { ...(existing ?? []), ...module.state }
 
         if (cfx.development()) {
-            function StateEntry(name: string, value: any) {
-                this.name = name
-                this.value = value
-                this.type = typeof value
-            }
-
             console.groupCollapsed(`State: ${view}`)
             console.table(Object.entries(module.state).map((self: [string, any]) => new StateEntry(self[0], self[1].value)))
             console.groupEnd()

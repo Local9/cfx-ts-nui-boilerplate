@@ -12,7 +12,9 @@
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
         "resolveJsonModule": true,
-        "esModuleInterop": true
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "sourceMap": true
     },
     "include": ["./**/*", "../shared/**/*"],
     "exclude": ["**/node_modules"]

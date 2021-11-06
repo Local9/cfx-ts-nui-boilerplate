@@ -1,3 +1,4 @@
+import React from 'react'
 import { cfx } from './logic/cfx'
 import { styles } from './util/tailwind'
 import { useLazyViews } from './logic/views'
